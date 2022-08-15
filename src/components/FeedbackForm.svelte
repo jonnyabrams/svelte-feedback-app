@@ -10,13 +10,13 @@
   <header>
     <h2>How would you rate our service?</h2>
   </header>
+  <form>
+    <div class="input-group">
+      <input type="text" bind:value = {text} placeholder="Have your say...">
+      <Button disabled={btnDisabled} type="submit">Send</Button>
+    </div>
+  </form>
 </Card>
-<form>
-  <div class="input-group">
-    <input type="text" bind:value = {text} placeholder="Have your say...">
-    <Button disabled={btnDisabled} type="submit">Send</Button>
-  </div>
-</form>
 
 <style>
   header {
