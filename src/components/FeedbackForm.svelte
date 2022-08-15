@@ -4,6 +4,18 @@
 
   let text = ""
   let btnDisabled = true
+  let minText = 10
+  let message
+
+  const handleInput = () => {
+    if (text.trim().length <= minText) {
+      message = `Text must be at least ${minText} characters`
+      btnDisabled = true
+    } else {
+      message = null
+      btnDisabled = false
+    }
+  }
 </script>
 
 <Card>
@@ -12,9 +24,14 @@
   </header>
   <form>
     <div class="input-group">
-      <input type="text" bind:value = {text} placeholder="Have your say...">
+      <input type="text" on:input={handleInput} bind:value = {text} placeholder="Have your say...">
       <Button disabled={btnDisabled} type="submit">Send</Button>
     </div>
+    {#if message}
+      <div class="message">
+        {message}
+      </div>
+    {/if}
   </form>
 </Card>
 
