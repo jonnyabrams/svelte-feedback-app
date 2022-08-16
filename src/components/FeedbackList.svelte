@@ -5,7 +5,7 @@
 </script>
 
 {#each feedback as fb (fb.id)}
-<div transition:fade>
+<div in:scale out:fade="{{ duration: 500 }}">
   <FeedbackItem item={fb} on:delete-feedback />
 </div>
 {/each}
